@@ -6,7 +6,13 @@
 	<groupId>cn.com.sit</groupId>
 	<artifactId>sit-base-parent</artifactId>
 	<version>sit.base.parent.version</version>
-	<packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
+    <packaging>pom</packaging>
 
 	<name>sit-base-parent</name>
 	<description>熙菱基础技术平台母项目</description>
