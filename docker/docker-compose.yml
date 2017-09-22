@@ -1,20 +1,24 @@
+mysql:
+  image: mysql
+  ports:
+   - "3307:3306"
+  volumes:
+   - ~/docker/mysql/data:/var/lib/mysql
+   - ~/docker/mysql/cnf/my.cnf:/etc/mysql/conf.d/mysqld.cnf
 discovery:
   image: sit/sit-base-service-center
   ports:
    - "9099:9099"
 token-service:
   image: sit/sit-base-token-service
-  ports:
-   - "9090:9090"
   links:
    - discovery
+   - mysql
 example-service:
   image: sit/example-biz-service
-  ports:
-   - "8082:8082"
   links:
    - discovery
-   - token-service
+   - mysql
 service-gateway:
   image: sit/sit-base-service-gateway
   ports:
